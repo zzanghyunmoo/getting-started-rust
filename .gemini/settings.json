@@ -1,0 +1,25 @@
+{
+	"mcpServers": {
+		"sequential-thinking": {
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"mcp/sequentialthinking"
+			],
+			"type": "stdio"
+		},
+		"memory": {
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"mcp/memory"
+			],
+			"type": "stdio"
+		}
+	},
+	"inputs": []
+}
