@@ -7,7 +7,7 @@
 ```
 examples/
 ├── README.md           # 이 파일
-├── ch01/               # 제1주: Rust 시작하기 (예정)
+├── ch01/               # 제1주: Rust 시작하기
 ├── ch02/               # 제2주: 변수와 기본 타입
 ├── ch03/               # 제3주: 연산자와 표현식 (예정)
 └── ...
@@ -27,7 +27,33 @@ cd examples/ch02
 cargo run
 ```
 
-### 3. 개별 예제 실행
+### 제1주: Rust 시작하기
+
+```bash
+cd examples/ch01
+
+# 전체 예제 목록
+cargo run
+
+# 개별 예제 실행
+cargo run --bin 01_hello_world
+cargo run --bin 02_function_analysis
+cargo run --bin 03_println_basics
+cargo run --bin 04_string_interpolation
+cargo run --bin 05_formatting_options
+cargo run --bin 06_debug_format
+cargo run --bin 07_special_characters
+cargo run --bin 08_comments
+cargo run --bin 09_game_title_screen
+cargo run --bin 10_colored_title_screen
+```
+
+### 제2주: 변수와 기본 타입
+
+```bash
+cd examples/ch02
+
+# 개별 예제 실행
 
 ```bash
 # 예제 번호로 실행
@@ -169,7 +195,7 @@ fn main() {
 
 | 챕터 | 주제 | 상태 |
 |------|------|------|
-| Ch01 | Rust 시작하기 | 예정 |
+| Ch01 | Rust 시작하기 | ✅ 완료 |
 | Ch02 | 변수와 기본 타입 | ✅ 완료 |
 | Ch03 | 연산자와 표현식 | 예정 |
 | Ch04 | 제어 흐름 | 예정 |
