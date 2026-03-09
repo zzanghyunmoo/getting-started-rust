@@ -1,0 +1,60 @@
+[package]
+name = "ch02-examples"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+
+# Individual examples
+[[bin]]
+name = "01_variables"
+path = "src/01_variables.rs"
+
+[[bin]]
+name = "02_mutability"
+path = "src/02_mutability.rs"
+
+[[bin]]
+name = "03_constants"
+path = "src/03_constants.rs"
+
+[[bin]]
+name = "04_shadowing"
+path = "src/04_shadowing.rs"
+
+[[bin]]
+name = "05_integer_types"
+path = "src/05_integer_types.rs"
+
+[[bin]]
+name = "06_float_types"
+path = "src/06_float_types.rs"
+
+[[bin]]
+name = "07_boolean"
+path = "src/07_boolean.rs"
+
+[[bin]]
+name = "08_character"
+path = "src/08_character.rs"
+
+[[bin]]
+name = "09_type_inference"
+path = "src/09_type_inference.rs"
+
+[[bin]]
+name = "10_type_conversion"
+path = "src/10_type_conversion.rs"
+
+[[bin]]
+name = "11_tuples"
+path = "src/11_tuples.rs"
+
+[[bin]]
+name = "12_arrays"
+path = "src/12_arrays.rs"
+
+[[bin]]
+name = "13_character_creation"
+path = "src/13_character_creation.rs"
