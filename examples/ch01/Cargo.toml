@@ -1,0 +1,57 @@
+[package]
+name = "ch01-examples"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+
+# Hello World
+[[bin]]
+name = "01_hello_world"
+path = "src/01_hello_world.rs"
+
+# Function Analysis
+[[bin]]
+name = "02_function_analysis"
+path = "src/02_function_analysis.rs"
+
+# Println Basics
+[[bin]]
+name = "03_println_basics"
+path = "src/03_println_basics.rs"
+
+# String Interpolation
+[[bin]]
+name = "04_string_interpolation"
+path = "src/04_string_interpolation.rs"
+
+# Formatting Options
+[[bin]]
+name = "05_formatting_options"
+path = "src/05_formatting_options.rs"
+
+# Debug Format
+[[bin]]
+name = "06_debug_format"
+path = "src/06_debug_format.rs"
+
+# Special Characters
+[[bin]]
+name = "07_special_characters"
+path = "src/07_special_characters.rs"
+
+# Comments
+[[bin]]
+name = "08_comments"
+path = "src/08_comments.rs"
+
+# Main Exercise: Game Title Screen
+[[bin]]
+name = "09_game_title_screen"
+path = "src/09_game_title_screen.rs"
+
+# Bonus: Colored Title Screen
+[[bin]]
+name = "10_colored_title_screen"
+path = "src/10_colored_title_screen.rs"
