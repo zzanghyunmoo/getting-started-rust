@@ -1,28 +1,32 @@
-# 던전 크롤러 (Dungeon Crawler)
+# Rust 프로그래밍 기초 실습 프로젝트
 
-> **Rust 프로그래밍 기초 수강생 프로젝트**
+> **Rust 언어의 기초부터 실전 프로젝트까지**
 >
-> 한 학기 동안 Rust를 배우며 만드는 텍스트 RPG 게임
+> 이 저장소는 Rust 프로그래밍 기초 강의를 위한 예제 코드와 실습 프로젝트를 포함합니다.
 
 ![Rust](https://img.shields.io/badge/Rust-2024.0-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Progress](https://img.shields.io/badge/progress-in%20development-yellow.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
 
 ---
 
-## 🎮 게임 소개
+## 📚 저장소 개요
 
-던전 크롤러는 텍스트 기반의 RPG 게임입니다. 플레이어는 용사를 육성하며 던전을 탐험하고 몬스터와 전투하여 경험치를 쌓습니다.
+이 저장소는 Rust 프로그래밍을 처음 시작하는 학습자를 위해 구성되었습니다. 챕터별 예제 코드와 실전 프로젝트를 통해 Rust의 기초 개념부터 실전 응용까지 단계적으로 학습할 수 있습니다.
 
-### 주요 기능
+### 📁 구조
 
-- 🏰 **캐릭터 시스템**: 이름, 직업(전사/마법사/도적) 선택, 스탯 커스터마이징
-- ⚔️ **전투 시스템**: 턴 기반 전투, 크리티컬 히트, 스킬 사용
-- 🎒 **인벤토리**: 아이템 획득, 장착, 소모품 사용
-- 🏪 **상점**: 장비와 소모품 구매
-- 🏰 **던전 탐험**: 랜덤 몬스터 조우, 보물 상자 발견
-- 📈 **성장 시스템**: 레벨업, 스탯 상승, 새로운 스킬 획득
-- 💾 **저장/로드**: 게임 진행 저장
+```
+getting-started-rust/
+├── examples/            # 챕터별 예제 코드
+│   ├── ch01/           # 제1주: Rust 시작하기
+│   ├── ch02/           # 제2주: 변수와 기본 타입
+│   └── ...
+├── dungeon_crawler/    # 실전 프로젝트: 텍스트 RPG 게임
+├── docs/               # 강의 노트
+├── context/            # 기술적 연구 노트
+└── README.md           # 이 파일
+```
 
 ---
 
@@ -30,141 +34,127 @@
 
 ### 전제 조건
 
-- Rust 1.90.0 이상
-- Cargo (Rust 빌드 도구)
+- **Rust 1.90.0 이상**
+- **Cargo** (Rust 빌드 도구)
 
-### 설치
+### Rust 설치
 
 ```bash
-# 저장소 복제
-git clone https://github.com/your-username/dungeon-crawler.git
-cd dungeon-crawler
-
-# 실행
-cargo run --release
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
 ```
 
-### 게임 실행
+### 설치 확인
 
 ```bash
-cargo run
+rustc --version
+cargo --version
 ```
 
 ---
 
 ## 📖 사용법
 
-### 게임 시작
+### 1. 챕터별 예제 실행
 
-```
-=====================================
-           DUNGEON CRAWLER
-=====================================
+```bash
+# 예제 디렉토리로 이동
+cd examples/ch01
 
-Press Enter to start...
-```
+# 전체 예제 목록 보기
+cargo run
 
-### 캐릭터 생성
-
-```
-용사의 이름을 입력하세요: 철수
-
-직업을 선택하세요:
-1. 전사 (HP: 100 | MP: 50 | 공격력: 15 | 방어력: 5)
-2. 마법사 (HP: 60 | MP: 100 | 공격력: 10 | 방어력: 3)
-3. 도적 (HP: 80 | MP: 60 | 공격력: 12 | 방어력: 8)
-
-선택: 1
+# 개별 예제 실행
+cargo run --bin 01_hello_world
+cargo run --bin 09_game_title_screen
 ```
 
-### 메인 메뉴
+### 2. 던전 크롤러 프로젝트
 
-```
-=====================================
- 용사: 철수 (Lv.1 전사)
- HP: [████████░░] 80/100  MP: [███░░░░░░] 30/100
- 공격력: 15  방어력: 5  골드: 50G
-=====================================
+```bash
+# 프로젝트 디렉토리로 이동
+cd dungeon_crawler
 
-[메뉴]
-1. 던전 입장
-2. 상점
-3. 휴식
-4. 인벤토리
-5. 상태 보기
-6. 저장/로드
-7. 종료
-
-선택: _
+# 게임 실행
+cargo run --release
 ```
 
 ---
 
-## 🏗️ 프로젝트 구조
+## 📚 커리큘럼
 
-```
-dungeon_crawler/
-├── Cargo.toml           # 프로젝트 설정
-├── src/
-│   ├── main.rs          # 메인 게임 루프
-│   ├── player.rs        # Player 구조체
-│   ├── monster.rs       # Monster 구조체
-│   ├── item.rs          # Item, ItemType 열거형
-│   ├── combat.rs        # 전투 시스템
-│   ├── inventory.rs     # 인벤토리 관리
-│   ├── shop.rs          # 상점 시스템
-│   ├── dungeon.rs       # 던전 생성
-│   ├── save.rs          # 저장/로드
-│   └── utils.rs         # 유� 함수
-├── tests/               # 테스트 코드
-├── README.md            # 이 파일
-└── .gitignore
-```
+### 챕터별 학습 로드맵
 
----
-
-## 📚 학습 로드맵
-
-이 프로젝트는 프로그래밍 기초 강의의 실습 과제로 설계되었습니다. 각 주차별로 새로운 기능이 추가됩니다:
-
-| 주차 | 추가 기능 | 학습 개념 |
-|------|-----------|----------|
-| 1 | 게임 제목 화면 | Hello World, `println!` |
-| 2 | 캐릭터 생성 | 변수, 타입, `const` |
-| 3 | 전투 데미지 계산 | 연산자, 표현식 |
-| 4 | 승리/패배 조건 | `if`, `match` |
-| 5 | 게임 루프 | `loop`, `while`, `for` |
-| 7 | 전투 함수화 | 함수, 매개변수, 반환값 |
-| 8 | 보물 상자 | 재귀 함수 |
-| 9 | 구조체 도입 | `struct`, `impl`, 메서드 |
-| 10 | 열거형과 Option | `enum`, `Option<T>`, 패턴 매칭 |
-| 11 | 인벤토리 | `Vec<T>`, `String` |
-| 12 | 도감 & 상점 | `HashMap<K, V>`, `Result<T, E>` |
-| 13 | 정렬 시스템 | 버블 정렬 등 |
-| 14 | 검색 기능 | 선형 탐색, 이진 탐색 |
-| 15 | 최종 완성 | 전체 통합 |
+| 주차 | 주제 | 학습 개념 | 상태 |
+|------|------|----------|------|
+| 1 | Rust 시작하기 | Hello World, `println!`, 함수 구조 | ✅ 완료 |
+| 2 | 변수와 기본 타입 | `let`, `const`, 타입 추론, 튜플, 배열 | ✅ 완료 |
+| 3 | 연산자와 표현식 | 산술, 비교, 논리 연산자 | 🔜 예정 |
+| 4 | 제어 흐름 | `if`, `match`, `loop`, `while`, `for` | 🔜 예정 |
+| 5 | 함수 | 매개변수, 반환값, 문 vs 표현식 | 🔜 예정 |
+| 6 | 소유권 | 스택 vs 힙, 빌림, 참조자 | 🔜 예정 |
+| 7 | 구조체 | `struct`, `impl`, 메서드 | 🔜 예정 |
+| 8 | 열거형과 패턴 매칭 | `enum`, `Option<T>`, `Result<T,E>` | 🔜 예정 |
+| 9 | 컬렉션 | `Vec<T>`, `HashMap<K,V>`, `String` | 🔜 예정 |
+| 10 | 에러 처리 | `panic!`, `Result`, `unwrap`, `?` | 🔜 예정 |
+| 11 | 제네릭과 트레이트 | 타입 매개변수, 트레이트 바운드 | 🔜 예정 |
+| 12 | 알고리즘 | 정렬, 검색, 재귀 | 🔜 예정 |
+| 13-15 | 프로젝트 완성 | 통합, 테스트, 최적화 | 🔜 예정 |
 
 ---
 
-## 🎯 게임 플레이 가이드
+## 🎮 던전 크롤러 프로젝트
 
-### 전사 (Warrior)
+[projects/dungeon_crawler/](projects/dungeon_crawler/) - 텍스트 기반 RPG 게임
 
-- **장점**: 높은 HP와 방어력, 안정적인 전투
-- **단점**: 낮은 MP, 마법 스킬 부족
-- **추천**: 초보자에게 적합
+이 프로젝트는 학습한 개념들을 실전에 적용해볼 수 있는 통합 프로젝트입니다. 한 학기 동안 점진적으로 기능을 추가하며 완성해 나갑니다.
 
-### 마법사 (Mage)
+### 주요 기능
 
-- **장점**: 높은 MP, 강력한 마법 스킬
-- **단점**: 낮은 HP와 방어력, 물리적 약함
-- **추천**: 전략적 플레이어에게 적합
+- 🏰 캐릭터 생성 및 육성
+- ⚔️ 턴 기반 전투 시스템
+- 🎒 인벤토리 관리
+- 🏪 상점 시스템
+- 🏰 던전 탐험
+- 💾 세이브/로드
 
-### 도적 (Rogue)
+**[자세히 보기 →](dungeon_crawler/README.md)**
 
-- **장점**: 균형 밸런스, 높은 회피율
-- **단점**: 특화된 스킬 부족
-- **추천**: 고수 플레이어에게 적합
+---
+
+## 📁 디렉토리 안내
+
+### `examples/`
+
+각 챕터의 핵심 개념을 독립적으로 실행하고 실험할 수 있는 예제 코드들입니다.
+
+```bash
+# 예제 목록 구조
+examples/
+├── ch01/              # Rust 시작하기
+│   └── src/
+│       ├── 01_hello_world.rs
+│       ├── 02_function_analysis.rs
+│       └── ...
+├── ch02/              # 변수와 기본 타입
+│   └── src/
+│       ├── 01_variables.rs
+│       ├── 02_mutability.rs
+│       └── ...
+└── README.md
+```
+
+### `dungeon_crawler/`
+
+실전 통합 프로젝트입니다. 학습한 개념들을 게임 개발에 적용해볼 수 있습니다.
+
+### `docs/`
+
+강의 노트와 이론적 배경이 정리된 문서들입니다.
+
+### `context/`
+
+각 챕터의 기술적 연구 내용과 심화 학습 자료가 포함되어 있습니다.
 
 ---
 
@@ -182,43 +172,35 @@ struct Player { ... }
 fn calculate_damage() -> i32 { ... }
 
 // 상수는 UPPER_SNAKE_CASE
-const MAX_INVENTORY_SIZE: usize = 20;
+const MAX_HP: u32 = 100;
 ```
 
-### 테스트 실행
+### 유용한 명령어
 
 ```bash
+# 빌드
+cargo build
+
+# 실행
+cargo run
+
+# 테스트
 cargo test
-```
 
-### 린트 확인
-
-```bash
+# 린트 검사
 cargo clippy
-```
 
-### 포맷팅
-
-```bash
+# 포맷팅
 cargo fmt
-```
 
----
+# 문서 생성
+cargo doc --open
 
-## 🎨 커스터마이징
+# 릴리즈 빌드
+cargo build --release
 
-게임 설정을 수정하려면 `src/utils.rs`에 있는 상수를 변경하세요:
-
-```rust
-// 게임 밸런스
-const STARTING_GOLD: u32 = 100;
-const LEVEL_UP_EXP: u32 = 100;
-
-// 인벤토리
-const MAX_INVENTORY_SIZE: usize = 20;
-
-// 던전
-const MAX_DUNGEON_DEPTH: u32 = 10;
+# clean
+cargo clean
 ```
 
 ---
@@ -229,11 +211,37 @@ const MAX_DUNGEON_DEPTH: u32 = 10;
 
 ---
 
-## 🙏 기여자
+## 🙋 기여 가이드
 
-- 개발: [학생들 이름]
-- 조교: [조교 이름]
-- 강의: [교수 이름]
+기여를 환영합니다! 다음 단계를 따라주세요:
+
+1. 이 저장소를 포크합니다
+2. 기능 브랜치를 생성합니다 (`git checkout -b feature/amazing-feature`)
+3. 변경사항을 커밋합니다 (`git commit -m 'Add amazing feature'`)
+4. 브랜치에 푸시합니다 (`git push origin feature/amazing-feature`)
+5. Pull Request를 생성합니다
+
+---
+
+## 📚 참고 자료
+
+### 공식 문서
+
+- [The Rust Programming Language](https://doc.rust-lang.org/book/) - "The Book"
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/) - 예제 중심 학습
+- [Rust Standard Library](https://doc.rust-lang.org/std/) - 표준 라이브러리 문서
+- [The Rust Reference](https://doc.rust-lang.org/reference/) - 언어 레퍼런스
+
+### 커뮤니티
+
+- [Rust Users Forum](https://users.rust-lang.org/)
+- [Rust Discord](https://discord.gg/rust-lang)
+- [r/rust subreddit](https://reddit.com/r/rust)
+
+### 도구
+
+- [Rust Playground](https://play.rust-lang.org/) - 온라인 Rust 실행 환경
+- [Cargo Docs](https://doc.rust-lang.org/cargo/) - 패키지 매니저 문서
 
 ---
 
@@ -243,44 +251,6 @@ const MAX_DUNGEON_DEPTH: u32 = 10;
 
 ---
 
-## 🗺️ 스크린샷
+*Happy Rustacean! 🦀*
 
-### 게임 시작 화면
-![시작 화면](screenshots/title.png)
-
-### 전투 화면
-![전투](screenshots/combat.png)
-
-### 인벤토리
-![인벤토리](screenshots/inventory.png)
-
----
-
-## 📚 참고 자료
-
-- [The Rust Programming Language](https://doc.rust-lang.org/book/)
-- [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
-- [Rust Standard Library](https://doc.rust-lang.org/std/)
-
----
-
-## 🔄 버전 관리
-
-- **v0.1.0** (Week 1): 기본 화면 출력
-- **v0.2.0** (Week 2): 캐릭터 생성
-- **v0.3.0** (Week 3): 전투 시스템 기초
-- **v0.4.0** (Week 4): 승리/패배 조건
-- **v0.5.0** (Week 5): 게임 루프
-- **v0.6.0** (Week 7): 함수 분리
-- **v0.7.0** (Week 8): 보물 상자
-- **v0.8.0** (Week 9): 구조체 도입
-- **v0.9.0** (Week 10): 열거형 도입
-- **v1.0.0** (Week 11): 인벤토리 완성
-- **v1.1.0** (Week 12): 도감과 상점
-- **v1.2.0** (Week 13): 정렬 기능
-- **v1.3.0** (Week 14): 검색 기능
-- **v2.0.0** (Week 15): 기말 프로젝트 완성
-
----
-
-*dungeon_crawler © 2024. All rights reserved.*
+**© 2024. All rights reserved.**
